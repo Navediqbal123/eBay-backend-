@@ -5,6 +5,7 @@ import cors from "cors";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// ✅ CORS enable (sab domains allowed)
 app.use(cors());
 app.use(express.json());
 
@@ -20,7 +21,7 @@ app.get("/products", async (req, res) => {
       "https://api.ebay.com/buy/browse/v1/item_summary/search?q=shoes",
       {
         headers: {
-          "Authorization": `Bearer ${process.env.EBAY_API_KEY}`, // <- yaha tumhara eBay API token env me hoga
+          "Authorization": `Bearer ${process.env.EBAY_API_KEY}`, // <- yaha tumhara eBay token env me hoga
           "Content-Type": "application/json",
         },
       }
